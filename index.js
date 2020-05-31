@@ -12,7 +12,7 @@ const shouldFetchDailyRanks = !!process.env.FETCH_DAILY_RANKS;
 const opts = {
   identity: {
     username: adminUsernames[0],
-    password: 'oauth:b1ekhrwqpbfnr0y860akwqp2wkvyx7'
+    password: process.env.TWITCH_TOKEN,
   },
   channels,
 };
