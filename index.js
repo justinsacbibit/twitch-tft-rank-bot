@@ -66,7 +66,7 @@ const sleep = (milliseconds) => {
   client.connect();
 
   if (fetchDailyRanks) {
-    const pollingInterval = 10_000; // TODO: Change to 30 minutes
+    const pollingInterval = 10000; // TODO: Change to 30 minutes
     setInterval(async () => {
       if (moment().hour() === 8) {
         const usernamesToGet = ['Poltsc2', 'poltt'];
@@ -78,7 +78,7 @@ const sleep = (milliseconds) => {
             console.log(`Daily rank fetcher -- Failed to get details for ${username}`)
           }
           
-          await sleep(5_000);
+          await sleep(5000);
         }
 
         dbFileManager.save(db);
