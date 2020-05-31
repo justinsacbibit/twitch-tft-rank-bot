@@ -2,10 +2,11 @@ const tmi = require('tmi.js');
 const axios = require('axios').default;
 const moment = require('moment');
 
+const adminUsernames = process.env.ADMIN_USERNAMES && process.env.ADMIN_USERNAMES.split(',') || ['thabawss'];
 const channels = process.env.CHANNELS.split(',');
 const opts = {
   identity: {
-    username: 'thabawsss',
+    username: adminUsernames[0],
     password: 'oauth:b1ekhrwqpbfnr0y860akwqp2wkvyx7'
   },
   channels,
@@ -28,13 +29,13 @@ async function onMessageHandler (target, context, msg, self) {
   const commandName = msg.trim();
 
   if (commandName === '!enable memes') {
-    if (!context.username === 'thabawss') {
+    if (!adminUsernames.includes(context.username)) {
       return;
     }
     memes = true;
     client.say(target, 'fun is here');
   } else if (commandName === '!disable memes') {
-    if (!context.username === 'thabawss') {
+    if (!adminUsernames.includes(context.username)) {
       return;
     }
     memes = false;
