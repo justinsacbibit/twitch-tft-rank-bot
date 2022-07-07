@@ -6,7 +6,7 @@
   "dependencies": {
     "async-lock": "^1.2.4",
     "axios": "^0.19.2",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "mz": "^2.7.0",
     "tmi.js": "^1.5.0"
   }
